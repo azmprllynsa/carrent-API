@@ -2,21 +2,21 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "coba_coba",
+    "database": "carrent",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "carrent",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
-    "database": "database_production",
+    "database": "carrent",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
