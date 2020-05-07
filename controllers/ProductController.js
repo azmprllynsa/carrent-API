@@ -27,11 +27,8 @@ module.exports = {
   insertProduct: async (req, res) => {
     const response = {}
     try {
-      const data = await product.create({
-        title: req.body.title,
-        year: req.body.year,
-        price: req.body.price
-      })
+      const body = req.body
+      const data = await product.create(body)
       if (data === undefined) {
         response.status = 404
         response.message = 'Data Not Found'
@@ -54,7 +51,7 @@ module.exports = {
   updateProduct: async (req, res) => {
     let response = {}
     try {
-      const productId = req.params.userId
+      const productId = req.params.productId
       const body = req.body
       const [edit] = await product.update(body, {
         where: {
@@ -86,7 +83,7 @@ module.exports = {
   deleteProduct: async (req, res) => {
     let response = {}
     try {
-      const productId = req.params.userId
+      const productId = req.params.productId
       const data = await product.destroy({
         where: {
           id: productId
