@@ -2,28 +2,6 @@ const product = require('../models').product
 const helpers = require('../helpers/response')
 
 module.exports = {
-  getProduct: async (req, res) => {
-    let response = {}
-    try {
-      const data = await product.findAll({})
-      if (data.length === 0) {
-        response.status = 404
-        response.message = 'Product not Found!'
-        helpers.helpers(res, response)
-      } else {
-        response.status = 200
-        response.message = 'OK!'
-        response.data = data
-        helpers.helpers(res, response)
-      }
-    } catch (err) {
-      response = {}
-      response.status = 500
-      response.message = 'Internal Server Error'
-      response.err = err
-      helpers.helpers(res, response)
-    }
-  },
   insertProduct: async (req, res) => {
     const response = {}
     try {
@@ -45,6 +23,28 @@ module.exports = {
       response.message = 'Internal Server Error'
       response.err = err
 
+      helpers.helpers(res, response)
+    }
+  },
+  getProduct: async (req, res) => {
+    let response = {}
+    try {
+      const data = await product.findAll({})
+      if (data.length === 0) {
+        response.status = 404
+        response.message = 'Product not Found!'
+        helpers.helpers(res, response)
+      } else {
+        response.status = 200
+        response.message = 'OK!'
+        response.data = data
+        helpers.helpers(res, response)
+      }
+    } catch (err) {
+      response = {}
+      response.status = 500
+      response.message = 'Internal Server Error'
+      response.err = err
       helpers.helpers(res, response)
     }
   },
