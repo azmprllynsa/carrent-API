@@ -1,5 +1,6 @@
 const multer = require('multer')
 const fs = require('fs')
+const path = require('path')
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -16,4 +17,16 @@ const storage = multer.diskStorage({
   }
 })
 
-exports.upload = multer({ storage })
+exports.upload = multer({
+  storage,
+  fileFilter: function (req, file, callback) {
+    const ext = path.extname(file.originalname)
+    if (ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
+      return callback(new Error('Only images are allowed'))
+    }
+    callback(null, true)
+  },
+  limits: {
+    fileSize: 1024 * 1024
+  }
+})
