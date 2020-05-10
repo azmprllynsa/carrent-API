@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     product_id: DataTypes.INTEGER,
     invoice: DataTypes.STRING,
     rent_estimation: DataTypes.STRING,
+    rental_time: DataTypes.STRING,
     return_time: DataTypes.STRING,
     forfeit: DataTypes.STRING,
     payment: DataTypes.INTEGER,
@@ -12,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {})
   order.associate = function (models) {
     // associations can be defined here
+    order.belongsTo(models.statusOrder, {
+      foreignKey: 'status',
+      as: 'statusOrder',
+      sourceKey: 'id'
+    })
   }
   return order
 }

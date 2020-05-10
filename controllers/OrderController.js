@@ -1,4 +1,4 @@
-const { order } = require('../models')
+const { order, statusOrder } = require('../models')
 const helpers = require('../helpers/response')
 
 module.exports = {
@@ -6,6 +6,10 @@ module.exports = {
     const response = {}
     try {
       const { body } = req
+      body.status = 1
+      const count = await order.count()
+      const datetime = new Date().toISOString().slice(0, 10).replace(/-/g, '')
+      body.invoice = `#CR${datetime}${count * 7}`
       const data = await order.create(body)
       if (data === undefined) {
         response.status = 203
@@ -29,7 +33,13 @@ module.exports = {
   getOrder: async (req, res) => {
     let response = {}
     try {
-      const data = await order.findAll({})
+      const data = await order.findAll({
+        include: [{
+          model: statusOrder,
+          as: 'statusOrder',
+          attributes: ['status']
+        }]
+      })
       if (data.length === 0) {
         response.status = 203
         response.message = 'Order List not Found!'
@@ -53,6 +63,13 @@ module.exports = {
     try {
       const { orderId } = req.params
       const data = await order.findOne({
+        include: [{
+          model: statusOrder,
+          as: 'statusOrder',
+          attributes: ['status']
+        }]
+      },
+      {
         where: {
           id: orderId
         }
