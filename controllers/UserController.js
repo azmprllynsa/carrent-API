@@ -163,12 +163,8 @@ module.exports = {
   updateUser: async (req, res) => {
     let response = {}
     try {
-      // const salt = bcrypt.genSaltSync(10)
       const userId = req.params.userId
-      // const password = bcrypt.hashSync(req.body.password, salt)
       const body = req.body
-      // body = Object.assign(body, { password })
-      // console.log(body)
       const [edit] = await user.update(body, {
         where: {
           id: userId
