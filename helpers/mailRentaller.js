@@ -15,7 +15,7 @@ module.exports = {
     console.log(data)
     const mailOptions = {
       from: process.env.EMAIL,
-      to: data.email,
+      to: 'maniskntl71@gmail.com',
       subject: 'CARRENT Partner Account Confirmation',
       html: `<!DOCTYPE html>
       <html lang="en">

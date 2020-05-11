@@ -6,6 +6,8 @@ const {
 } = require('../models')
 const { Op } = require('sequelize')
 const helpers = require('../helpers/response')
+// const redis = require('redis')
+// const client = redis.createClient(process.env.PORT_REDIS)
 
 module.exports = {
   insertProduct: async (req, res) => {
@@ -152,6 +154,7 @@ module.exports = {
         pagination.message = 'Product not Found!'
         helpers.pagination(res, req.query, pagination)
       } else {
+        // client.setex('getallbooks', 3600, JSON.stringify(data))
         pagination.status = 200
         pagination.message = 'OK!'
         pagination.data = data

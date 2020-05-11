@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const ProductController = require('../controllers/ProductController')
 const { upload } = require('../helpers/upload')
+// const redisHelper = require('../helpers/redis')
 
 router
   .post('/', upload.array('image', 5), ProductController.insertProduct)
