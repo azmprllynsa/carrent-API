@@ -1,4 +1,4 @@
-# Tokosidia API (Inspired by Tokopedia)
+<h2 align="center">Carrent API</h2>
 
 [![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/azmprllynsa/carrent-API)
