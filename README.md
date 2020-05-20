@@ -127,7 +127,7 @@ Fork the Project
 
 
 ## Related Project
-* [`Frontend Carrent2`](https://github.com/azmprllynsa/carrent-vuejs)
+* [`Carrent Frontend`](https://github.com/azmprllynsa/carrent-vuejs)
 
 
 ## Contributors
