@@ -73,6 +73,16 @@ $ npm run serve
 | 9   | PATCH       | /api/v1/carrent/user/:user_id       | Edit or update the user’s data by it’s ID  |
 | 10  | DELETE      | /api/v1/carrent/user/:user_id       | Delete the user by it’s ID                 |
 
+### Rentaller Endpoint
+| No  | HTTP Method | URI                                    | Operation                               |
+| --- | ----------- | -------------------------------------- | --------------------------------------- |
+| 1   | GET         | /api/v1/carrent/rentaller/             | Get all rentallers data                 |
+| 2   | GET         | /api/v1/carrent/rentaller/:rentaller_id| Get rentaller’s data by it’s ID         |
+| 3   | POST        | /api/v1/carrent/rentaller/register     | Register new rentaller                  |
+| 4   | POST        | /api/v1/carrent/rentaller/login        | Login rentaller                         |
+| 9   | PATCH       | /api/v1/carrent/rentaller/:rentaller_id| Update the rentaller’s data by it’s ID  |
+| 10  | DELETE      | /api/v1/carrent/rentaller/:rentaller_id| Delete the rentaller by it’s ID         |
+
 ### Product Endpoint
 | No  | HTTP Method | URI                                  | Operation                                 |
 | --- | ----------- | ------------------------------------ | ----------------------------------------- |
